@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furra - Online Adam Asmaca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-menu">
+        <h1>FURRA</h1>
+        <div class="menu-box" id="create-game-box">
+            <h2>Oyun Kur</h2>
+            <div class="settings">
+                <label for="wrong-rights">Yanlış Hakkı:</label>
+                <select id="wrong-rights">
+                    <option value="5">5</option>
+                    <option value="7" selected>7</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <button id="create-game-btn">Oluştur</button>
+        </div>
+
+        <div class="menu-box" id="join-game-box">
+            <h2>Oyuna Katıl</h2>
+            <input type="text" id="room-code-input" placeholder="Oda Kodu" maxlength="5">
+            <button id="join-game-btn">Katıl</button>
+        </div>
+
+        <div class="menu-box" id="room-code-display" style="display: none;">
+            <h2>Oda Kodunuz</h2>
+            <p>Bu kodu arkadaşınıza gönderin:</p>
+            <h3 id="room-code-text"></h3>
+            <p>Rakip bekleniyor...</p>
+        </div>
+    </div>
+
+    <div id="game-screen" style="display: none;">
+        <h2 id="game-info">Oyun Başladı!</h2>
+        <div id="score-container">
+    <span>Skorunuz: <b id="player1-score">0</b></span>
+    <span>Rakip Skor: <b id="player2-score">0</b></span>
+</div>
+        <div id="set-word-container" class="game-section" style="display: none;">
+            <h3>Lütfen bir kelime veya cümle belirleyin:</h3>
+            <input type="text" id="word-input" placeholder="Kelimeyi buraya yazın...">
+            <button id="set-word-btn">Kelimeyi Onayla</button>
+        </div>
+
+        <div id="game-play-container" class="game-section" style="display: none;">
+            <p>Yanlış Tahmin: <span id="wrong-guesses-count">0</span> / <span id="max-wrong-guesses">7</span></p>
+
+            <div id="word-container">
+                </div>
+
+            <div id="guesses-container">
+                <p>Tahmin edilen harfler:</p>
+                <div id="keyboard-container">
+                    </div>
+            </div>
+            
+            <div id="game-over-container" style="display: none;">
+                <h3 id="game-over-message"></h3>
+                <button id="play-again-btn">Tekrar Oyna</button>
+                <button id="main-menu-btn">Ana Sayfaya Dön</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
